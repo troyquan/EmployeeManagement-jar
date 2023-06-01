@@ -1,11 +1,10 @@
 # 使用一个基础的 Java 镜像
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8
 
-# 将 JAR 文件复制到容器中的指定位置
-COPY service-system.jar /app/service-system.jar
+MAINTAINER bingo
 
-# 设置容器的工作目录
-WORKDIR /app
+ADD service-system.jar service-system.jar
 
+EXPOSE 8080
 # 定义启动命令
 CMD ["java", "-jar", "service-system.jar"]
